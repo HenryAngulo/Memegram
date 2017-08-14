@@ -1,0 +1,53 @@
+doctype html
+html(lang="es")
+    head 
+        title MEMEGRAM
+        meta(charset="utf-8")
+        link(href="/public/css/materialize.min.css" rel="stylesheet")
+        link(href="/public/css/app.css" rel="stylesheet")
+        script(src="/socket.io/socket.io.js")
+        script(src="/public/js/handlebars.js")
+        script(src="/public/js/jquery-3.1.1.min.js")
+        script(src="/public/js/materialize.js")
+    body
+        nav.cyan.darken-2
+            div.nav-wrapper
+                a(href="#!" class="brand-logo") MEMEGRAM
+                a(href="#" data-activates="mobile-demo" class="button-collapse")   
+                    i.material-icons Menu
+                ul.right.hide-on-med-and-down
+                    if(!user)
+                        li
+                            a(href="/") Inicio
+                        li
+                            a(href="/login") Iniciar sesión
+                        li
+                            a(href="/signup") Registrarse
+                    if(user)
+                        li
+                            a(href="/app") Incio
+                        li
+                            a(href="/app/imagenes") Mis imagenes
+                        li
+                            a(href="/app/logout") Cerrar sesión
+                ul.side-nav#mobile-demo
+                    if(!user)
+                        li
+                            a(href="/") Inicio
+                        li
+                            a(href="/login") Iniciar sesión
+                        li
+                            a(href="/signup") Registrarse
+                    if(user)
+                        li
+                            a(href="/app") Incio
+                        li
+                            a(href="/app/imagenes") Mis imagenes
+                        li
+                            a(href="/app/logout") Cerrar sesión
+        
+        block contenido
+        script(type="text/javascript")
+            $( document ).ready(function(){
+            $(".button-collapse").sideNav();
+            });

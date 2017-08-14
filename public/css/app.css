@@ -1,0 +1,31 @@
+body{
+    font-family: "Glypha LT Std", sans-serif;
+    color: #263238 !important;
+}
+
+/*Pagina inicio*/
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*Incio imagenes*/
+.imagen-item{
+    padding: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.aire{
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+}
+.user{
+    font-weight: bolder;
+    text-decoration: underline;
+}

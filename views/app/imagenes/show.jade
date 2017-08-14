@@ -1,0 +1,7 @@
+extends ../../layout.jade
+block contenido
+    h1= imagen.tittle
+    img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" class="img-responsive")
+    if(imagen.creator)
+        p Por #{imagen.creator.email}
+

@@ -1,0 +1,17 @@
+extends ../../layout.jade
+block contenido
+   .container
+        h1.text-center Mis Imagenes
+        .row.sin-saltos
+            for imagen in imagenes
+                .col-md-12.text-center.imagen-item
+                        if(imagen.extension)
+                            img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" class="col-xs-12 col-md-4 img-responsive aire")
+                        a(href="/app/imagenes/#{imagen._id}" class="col-xs-12 col-md-4")
+                            h2= imagen.tittle 
+                        .col-xs-12.col-md-4
+                            a(href="/app/imagenes/#{imagen._id}/editar" class="col-xs-6 text-center btn btn-primary") Editar
+                            form(action="/app/imagenes/#{imagen._id}?_method=DELETE", method="POST", class="col-xs-6")
+                                input(type="submit" value="Eliminar" class="btn btn-danger text-center col-xs-12")
+        .row
+            a.col-xs-6.col-xs-offset-3.col-md-4.col-md-offset-4.text-center.btn.btn-info.aire(href="/app/imagenes/new") Añadir nueva imagen

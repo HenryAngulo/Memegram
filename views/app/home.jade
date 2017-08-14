@@ -1,0 +1,20 @@
+extends ../layout.jade
+block contenido
+    .container
+        .row#imagenes
+            for imagen in imagenes
+                .col-md-8.col-md-offset-2
+                    a(href="/app/imagenes/#{imagen._id}")
+                        h2.text-center.text-uppercase #{imagen.tittle}
+                    if(imagen.extension)
+                        img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}" class="img-responsive aire center-block")
+                    h4.text-right Por: 
+                        span.user #{imagen.creator.username}
+
+    script(src="image-template" id="image-template" type="text/x-handlebars-template")
+        .col-md-8.col-md-offset-2
+            a(href="/app/imagenes/{{id}}")
+                h2 {{tittle}}
+            img(src="/public/imagenes/{{id}}.{{extension}}" class="img-responsive aire center-block")
+
+    script(src="/public/js/client.js")
